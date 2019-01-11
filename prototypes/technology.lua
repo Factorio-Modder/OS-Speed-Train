@@ -4,7 +4,7 @@ data:extend(
     type = "technology",
     name = "speed-train",
     icon_size = 128,
-    icon = "__SO-Speed-Train__/graphics/icons/speed-train-tech.png",
+    icon = "__OS-Speed-Train__/graphics/icons/speed-train-tech.png",
     effects =
     {
       {
@@ -15,16 +15,42 @@ data:extend(
     prerequisites = {"braking-force-3"},
     unit =
     {
-      count = 600,
+      count = 500,
       ingredients =
       {
-        {"science-pack-1", 1},
-        {"science-pack-2", 1},
+        {"science-pack-1", 2},
+        {"science-pack-2", 2},
         {"science-pack-3", 1},
         {"production-science-pack", 1}
       },
       time = 25
     },
     order = "b-f-h"
+  },
+  {
+    type = "technology",
+    name = "speed-train-fuel",
+    icon_size = 128,
+    icon = "__OS-Speed-Train__/graphics/icons/speed-train-fuel-tech.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "speed-train-fuel"
+      }
+    },
+    prerequisites = {"speed-train"},
+    unit =
+    {
+      count = 250,
+      ingredients =
+      {
+        {"science-pack-2", 1},
+        {"science-pack-3", 1},
+        {"production-science-pack", 2}
+      },
+      time = 40
+    },
+    order = "b-f-i"
   }
 })
