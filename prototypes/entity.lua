@@ -204,5 +204,124 @@ data:extend({
     open_sound = { filename = "__base__/sound/car-door-open.ogg", volume=0.7 },
     close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.7 },
     sound_minimum_speed = 0.5;
+  },
+  {
+    type = "cargo-wagon",
+    name = "speed-cargo-wagon",
+    icon = "__OS-Speed-Train__/graphics/icons/speed-cargo-wagon.png",
+    icon_size = 32,
+    flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
+    inventory_size = 50,
+    minable = {mining_time = 1, result = "speed-cargo-wagon"},
+    mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
+    max_health = 500,
+    corpse = "medium-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
+    selection_box = {{-1, -2.703125}, {1, 3.296875}},
+    vertical_selection_shift = -0.796875,
+    weight = 800,
+    max_speed = 2,
+    braking_force = 5,
+    friction_force = 0.40,
+    air_resistance = 0.01,
+    connection_distance = 3,
+    joint_distance = 4,
+    energy_per_hit_point = 5,
+    resistances =
+    {
+      {
+        type = "fire",
+        decrease = 15,
+        percent = 50
+      },
+      {
+        type = "physical",
+        decrease = 20,
+        percent = 40
+      },
+      {
+        type = "impact",
+        decrease = 60,
+        percent = 70
+      },
+      {
+        type = "explosion",
+        decrease = 15,
+        percent = 30
+      },
+      {
+        type = "acid",
+        decrease = 10,
+        percent = 20
+      }
+    },
+    back_light = rolling_stock_back_light(),
+    stand_by_light = rolling_stock_stand_by_light(),
+    color = {r = 0.43, g = 0.23, b = 0, a = 0.5},
+    pictures =
+    {
+      layers =
+      {
+        {
+          priority = "very-low",
+          slice = 4,
+          width = 222,
+          height = 205,
+          back_equals_front = true,
+          direction_count = 128,
+          allow_low_quality_rotation = true,
+          filenames =
+          {
+            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-1.png",
+            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-2.png",
+            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-3.png",
+            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-4.png"
+          },
+          line_length = 4,
+          lines_per_file = 8,
+          shift = {0, -0.796875},
+          hr_version =
+          {
+            priority = "very-low",
+            slice = 4,
+            width = 442,
+            height = 407,
+            back_equals_front = true,
+            direction_count = 128,
+            allow_low_quality_rotation = true,
+            filenames =
+            {
+              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-1.png",
+              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-2.png",
+              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-3.png",
+              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-4.png"
+            },
+            line_length = 4,
+            lines_per_file = 8,
+            shift = util.by_pixel(0, -25.25),
+            scale = 0.5
+          }
+        }
+      }
+    },
+    wheels = standard_train_wheels,
+    rail_category = "regular",
+    drive_over_tie_trigger = drive_over_tie(),
+    tie_distance = 50,
+    working_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/train-wheels.ogg",
+        volume = 0.6
+      },
+      match_volume_to_activity = true
+    },
+    crash_trigger = crash_trigger(),
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+    sound_minimum_speed = 0.5;
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
   }
 })

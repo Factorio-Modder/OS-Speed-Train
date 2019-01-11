@@ -15,6 +15,20 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "speed-cargo-wagon",
+    enabled = "false",
+    ingredients = 
+    {
+      {"cargo-wagon",1},
+      {"electronic-circuit",100},
+      {"advanced-circuit",20},
+      {"iron-gear-wheel",50},
+      {"plastic-bar",75}
+    },
+    result = "speed-cargo-wagon"
+  },
+  {
+    type = "recipe",
     name = "speed-train-fuel",
     enabled = "false",
     ingredients = 
