@@ -10,12 +10,16 @@ data:extend(
       {
         type = "unlock-recipe",
         recipe = "speed-train"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "speed-cargo-wagon"
       }
     },
     prerequisites = {"braking-force-3"},
     unit =
     {
-      count = 500,
+      count = 750,
       ingredients =
       {
         {"science-pack-1", 2},
@@ -23,7 +27,7 @@ data:extend(
         {"science-pack-3", 1},
         {"production-science-pack", 1}
       },
-      time = 25
+      time = 20
     },
     order = "b-f-h"
   },

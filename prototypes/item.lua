@@ -9,6 +9,18 @@ data:extend({
     subgroup = "transport",
     order = "a[train-system]-f[diesel-locomotive]",
     place_result = "speed-train",
+    stack_size = 1
+	
+  },
+  {
+    type = "item",
+    name = "speed-cargo-wagon",
+    icon = "__OS-Speed-Train__/graphics/icons/speed-cargo-wagon.png",
+    icon_size = 32,
+    flags = {"goes-to-quickbar"},
+    subgroup = "transport",
+    order = "a[train-system]-g[cargo-wagon]",
+    place_result = "speed-cargo-wagon",
     stack_size = 5
 	
   },
