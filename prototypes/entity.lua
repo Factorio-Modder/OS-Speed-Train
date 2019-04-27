@@ -21,7 +21,7 @@ data:extend({
     braking_force = 25,
     friction_force = 0.25,
     vertical_selection_shift = -0.5,
-    air_resistance = 0.0050, -- this is a percentage of current speed that will be subtracted
+    air_resistance = 0.0050,
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 10,
@@ -81,7 +81,7 @@ data:extend({
         minimum_darkness = 0.0,
         picture =
         {
-          filename = "__core__/graphics/light-cone.png",
+          filename = "__OS-Speed-Train__/graphics/speed-train/light-cone.png",
           priority = "extra-high",
           flags = { "light" },
           scale = 2,
@@ -98,7 +98,7 @@ data:extend({
         minimum_darkness = 0.0,
         picture =
         {
-          filename = "__core__/graphics/light-cone.png",
+          filename = "__OS-Speed-Train__/graphics/speed-train/light-cone.png",
           priority = "extra-high",
           flags = { "light" },
           scale = 2,
@@ -113,7 +113,7 @@ data:extend({
     },
     back_light = rolling_stock_back_light(),
     stand_by_light = rolling_stock_stand_by_light(),
-    color = {r = 1, g = 1, b = 1, a = 1},
+    color = {r = 0, g = 0, b = 0, a = 1},
     pictures =
     {
       layers =
@@ -162,41 +162,7 @@ data:extend({
           line_length = 4,
           lines_per_file = 8,
           shift = {0.0, -0.5},
-          apply_runtime_tint = true,
-          hr_version =
-            {
-              priority = "very-low",
-              flags = { "mask" },
-              slice = 4,
-              width = 472,
-              height = 456,
-              direction_count = 256,
-              allow_low_quality_rotation = true,
-              filenames =
-              {
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-1.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-2.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-3.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-4.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-5.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-6.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-7.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-8.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-9.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-10.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-11.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-12.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-13.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-14.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-15.png",
-                "__OS-Speed-Train__/graphics/speed-train/hr-diesel-locomotive-mask-16.png"
-              },
-              line_length = 4,
-              lines_per_file = 4,
-              shift = {0.0, -0.5},
-              apply_runtime_tint = true,
-              scale = 0.5
-            }
+          apply_runtime_tint = true
         },
         {
           priority = "very-low",
@@ -368,30 +334,118 @@ data:extend({
           },
           line_length = 4,
           lines_per_file = 8,
-          shift = {0, -0.796875},
-          hr_version =
-          {
-            priority = "very-low",
-            slice = 4,
-            width = 442,
-            height = 407,
-            back_equals_front = true,
-            direction_count = 128,
-            allow_low_quality_rotation = true,
-            filenames =
-            {
-              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-1.png",
-              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-2.png",
-              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-3.png",
-              "__base__/graphics/entity/cargo-wagon/hr-cargo-wagon-4.png"
-            },
-            line_length = 4,
-            lines_per_file = 8,
-            shift = util.by_pixel(0, -25.25),
-            scale = 0.5
-          }
+          shift = {0, -0.796875}
         }
       }
+    },horizontal_doors =
+    {
+      layers =
+      {
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-end.png",
+          line_length = 1,
+          width = 220,
+          height = 33,
+          frame_count = 8,
+          shift = {0, -0.921875}
+        },
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-side.png",
+          line_length = 1,
+          width = 186,
+          height = 38,
+          frame_count = 8,
+          shift = {0, -0.78125}
+        },
+        {
+          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal-side-mask.png",
+          width = 182,
+          height = 35,
+          line_length = 1,
+          frame_count = 8,
+          shift = {0, -0.828125},
+          apply_runtime_tint = true
+        },
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-top.png",
+          line_length = 1,
+          width = 184,
+          height = 28,
+          frame_count = 8,
+          shift = {0.015625, -1.125}
+        },
+        {
+          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal-top-mask.png",
+          width = 185,
+          height = 23,
+          frame_count = 8,
+          line_length = 1,
+          shift = {0.015625, -1.17188},
+          apply_runtime_tint = true
+        }
+      }
+    },
+    vertical_doors =
+    {
+      layers =
+      {
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-end.png",
+          line_length = 8,
+          width = 30,
+          height = 23,
+          frame_count = 8,
+          shift = util.by_pixel(0, 62.5)
+        },
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-side.png",
+          line_length = 8,
+          width = 67,
+          height = 169,
+          frame_count = 8,
+          shift = {0.015625, -1.01563}
+        },
+        {
+          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical-side-mask.png",
+          line_length = 8,
+          width = 56,
+          height = 163,
+          frame_count = 8,
+          shift = {0, -1.10938},
+          apply_runtime_tint = true
+        },
+        {
+          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-top.png",
+          line_length = 8,
+          width = 32,
+          height = 168,
+          frame_count = 8,
+          shift = {0, -1.125}
+        },
+        {
+          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical-top-mask.png",
+          line_length = 8,
+          width = 32,
+          height = 166,
+          frame_count = 8,
+          shift = {0, -1.15625},
+          apply_runtime_tint = true
+        }
+      }
+    },
+    minimap_representation =
+    {
+      filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-minimap-representation.png",
+      flags = {"icon"},
+      size = {20, 40},
+      scale = 0.5
+    },
+    selected_minimap_representation =
+    {
+      filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-selected-minimap-representation.png",
+      flags = {"icon"},
+      size = {20, 40},
+      scale = 0.5
     },
     wheels = standard_train_wheels,
     rail_category = "regular",

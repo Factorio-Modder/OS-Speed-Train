@@ -1,0 +1,5 @@
+# Local git directory
+.git/
+
+# Photoshop files
+.psd/
