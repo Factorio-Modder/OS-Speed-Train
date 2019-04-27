@@ -150,14 +150,14 @@ data:extend({
           allow_low_quality_rotation = true,
           filenames =
           {
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-01.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-02.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-03.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-04.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-05.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-06.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-07.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-08.png"
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-01.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-02.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-03.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-04.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-05.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-06.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-07.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-08.png"
           },
           line_length = 4,
           lines_per_file = 8,
@@ -175,14 +175,14 @@ data:extend({
           allow_low_quality_rotation = true,
           filenames =
           {
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-01.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-02.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-03.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-04.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-05.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-06.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-07.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-08.png"
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-01.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-02.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-03.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-04.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-05.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-06.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-07.png",
+            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-08.png"
           },
           line_length = 4,
           lines_per_file = 8,
