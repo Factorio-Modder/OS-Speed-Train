@@ -32,7 +32,7 @@
 ## Getting Started
 
 This mod adds faster trains to the game. Those trains must be unlocked with a own tech and are definitly more expensive than the vanilla train.<br>
-There is a own train fuel which makes even more powerful.
+There is a own train fuel which makes them even more powerful.
 
 ![][image]
 
