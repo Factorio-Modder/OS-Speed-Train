@@ -2,7 +2,7 @@ data:extend({
     {
     type = "locomotive",
     name = "speed-train",
-    icon = "__base__/graphics/icons/diesel-locomotive.png",
+    icon = "__base__/graphics/icons/locomotive.png",
     icon_size = 32,
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     minable = {mining_time = 1, result = "speed-train"},
