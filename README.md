@@ -1,37 +1,11 @@
 [![Mod Portal][shild-i-download]][mod-portal]
-<br>
 [![GitLab][shild-i-gitlab]][gitlab]
 
-<br />
-<div align="center">
-  <a href="https://mods.factorio.com/mod/OS-Speed-Train">
-    <img src="https://mods-data.factorio.com/assets/3e7eaf97a44e5d4832bd54c52154df0f3518c169.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">[OS] Speed Train</h3>
-
-  <p align="center">
-    Adds speed trains for faster railway transport.
-    <br />
-    <a href="/issues/new">Report Bug</a>
-    ·
-    <a href="/issues/new">Request Feature</a>
-  </p>
-</div>
-
-- [Getting Started](#getting-started)
-  * [Dependencys](#dependencys)
-  * [Installing](#installing)
-- [Built With](#built-with)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [Changelog](#changelog)
+# [OS] Speed Train
 
 ## Getting Started
 
-This mod adds faster trains to the game. Those trains must be unlocked with a own tech and are definitly more expensive than the vanilla train.<br>
+This mod adds faster trains to the game. Those trains must be unlocked with a own tech and are definitly more expensive than the vanilla train.
 There is a own train fuel which makes them even more powerful.
 
 ![][image]
@@ -53,29 +27,26 @@ If you have downloaded the source archive ([GitLab][gitlab]):
 - copy the mod directory into your factorio mods directory
 - rename the mod directory to `OS-Speed-Train_versionnumber`, where `versionnumber` is the version of the mod that you've downloaded (e.g., `0.5.0`)
 
-## Built With
-
-* [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
-
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Visit the [GitLab Repo][gitlab] for further informations.
 
 ## Authors
 
 * **Hille** - *Initial work* - [@hille](https://gitlab.com/hille)
 
-See also the list of [contributors](CONTRIBUTORS.md) who participated in this project.
-
 ## License
 
-This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE.md](LICENSE) file for details
-
-## Acknowledgments
-
-* Change the color of the train for a beautiful metal effect
+This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE](https://creativecommons.org/licenses/by-nc-nd/4.0/) for details
 
 ## Changelog
+
+### [1.0.0] 28.10.2020
+After 1 1/2 years the official version 1.0.0 is released to support the 1.0 version of the game.
+
+Have fun :)
+
+
 
 ### [0.5.0] 27.04.2019
 **Added:**
@@ -87,7 +58,7 @@ This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE.md](LICENS
 **Removed:**
 - German translation - which will be added with 0.5.1
 
-<br>
+
 
 ### [0.4.0] 17.04.2019
 **Added:**
@@ -97,7 +68,7 @@ This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE.md](LICENS
 - Train graphics for a more unique and natural look
 - Train icon for copyright reasons
 
-<br>
+
 
 ### [0.3.0] 11.01.2019
 **Added:**
@@ -106,7 +77,7 @@ This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE.md](LICENS
 **Changed:**
 - Technology and receipt cost
 
-<br>
+
 
 ### [0.2.0] 10.01.2019
 **Added:**
@@ -117,7 +88,7 @@ This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE.md](LICENS
 - Train model to a recoloured version of angelsaddons-smeltingtrain_0.1.2
 - Train icon to a recoloured version of angelsaddons-smeltingtrain_0.1.2
 
-<br>
+
 
 ### [0.1.0] 10.01.2019
 **Added:**
