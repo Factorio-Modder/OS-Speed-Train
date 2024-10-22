@@ -1,30 +1,113 @@
-data:extend({
+require ("__base__.prototypes.entity.rail-pictures")
+
+local hit_effects = require ("__base__.prototypes.entity.hit-effects")
+local sounds = require("__base__.prototypes.entity.sounds")
+local simulations = require("__base__.prototypes.factoriopedia-simulations")
+
+local rolling_stock_back_light = function()
+  return
+  {
     {
+      minimum_darkness = 0.3,
+      color = {1, 0.1, 0.05, 0},
+      shift = {-0.6, 3.5},
+      size = 2,
+      intensity = 0.6,
+      add_perspective = true
+    },
+    {
+      minimum_darkness = 0.3,
+      color = {1, 0.1, 0.05, 0},
+      shift = {0.6, 3.5},
+      size = 2,
+      intensity = 0.6,
+      add_perspective = true
+    }
+  }
+end
+
+local rolling_stock_stand_by_light = function()
+  return
+  {
+    {
+      minimum_darkness = 0.3,
+      color = {0.05, 0.2, 1, 0},
+      shift = {-0.6, -3.5},
+      size = 2,
+      intensity = 0.5,
+      add_perspective = true
+    },
+    {
+      minimum_darkness = 0.3,
+      color = {0.05, 0.2, 1, 0},
+      shift = {0.6, -3.5},
+      size = 2,
+      intensity = 0.5,
+      add_perspective = true
+    }
+  }
+end
+
+local drive_over_tie = function()
+  return
+  {
+    type = "play-sound",
+    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
+  }
+end
+
+local locomotive_reflection = function()
+  return
+  {
+    pictures =
+    {
+      filename = "__base__/graphics/entity/locomotive/reflection/locomotive-reflection.png",
+      priority = "extra-high",
+      width = 20,
+      height = 52,
+      shift = util.by_pixel(0, 40),
+      variation_count = 1,
+      scale = 5
+    },
+    rotate = true,
+    orientation_to_variation = false
+  }
+end
+
+data:extend({
+  {
     type = "locomotive",
     name = "speed-train",
     icon = "__base__/graphics/icons/locomotive.png",
     icon_size = 32,
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     minable = {mining_time = 1, result = "speed-train"},
-    mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
-    max_health = 3000,
-    corpse = "medium-remnants",
-    dying_explosion = "big-explosion",
+    mined_sound = sounds.deconstruct_large(0.8),
+    max_health = 1500,
+    deliver_category = "vehicle",
+    corpse = "locomotive-remnants",
+    dying_explosion = "locomotive-explosion",
+    factoriopedia_simulation = simulations.factoriopedia_locomotive,
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
-    drawing_box = {{-1, -4}, {1, 3}},
+    damaged_trigger_effect = hit_effects.entity(),
+    drawing_box_vertical_extension = 1,
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 1500,
-    max_speed = 1.6,
+    max_speed = 2.0,
     max_power = "2000kW",
     reversing_power_modifier = 0.6,
     braking_force = 25,
     friction_force = 0.25,
     vertical_selection_shift = -0.5,
-    air_resistance = 0.0050,
+    air_resistance = 0.0050, -- this is a percentage of current speed that will be subtracted
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 10,
+    icons_positioning =
+    {
+      {inventory_index = defines.inventory.fuel, shift = {0, 0.3}, max_icons_per_row = 3},
+    },
     resistances =
     {
       {
@@ -53,11 +136,12 @@ data:extend({
         percent = 10
       }
     },
-    burner =
+    energy_source =
     {
-      fuel_category = "chemical",
-      effectivity = 0.8,
-      fuel_inventory_size = 5,
+      type = "burner",
+      fuel_categories = {"chemical"},
+      effectivity = 1.2,
+      fuel_inventory_size = 3,
       smoke =
       {
         {
@@ -78,7 +162,7 @@ data:extend({
     {
       {
         type = "oriented",
-        minimum_darkness = 0.0,
+        minimum_darkness = 0.3,
         picture =
         {
           filename = "__OS-Speed-Train__/graphics/speed-train/light-cone.png",
@@ -114,98 +198,86 @@ data:extend({
     back_light = rolling_stock_back_light(),
     stand_by_light = rolling_stock_stand_by_light(),
     color = {r = 0, g = 0, b = 0, a = 1},
+    default_copy_color_from_train_stop = true,
     pictures =
     {
-      layers =
+      rotated =
       {
+        layers =
         {
-          slice = 4,
-          priority = "very-low",
-          width = 238,
-          height = 230,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames =
-          {
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-01.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-02.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-03.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-04.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-05.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-06.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-07.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5}
-        },
-        {
-          priority = "very-low",
-          flags = { "mask" },
-          slice = 4,
-          width = 236,
-          height = 228,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames =
-          {
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-01.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-02.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-03.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-04.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-05.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-06.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-07.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-mask-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          apply_runtime_tint = true
-        },
-        {
-          priority = "very-low",
-          slice = 4,
-          flags = { "shadow" },
-          width = 253,
-          height = 212,
-          direction_count = 256,
-          draw_as_shadow = true,
-          allow_low_quality_rotation = true,
-          filenames =
-          {
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-01.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-02.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-03.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-04.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-05.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-06.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-07.png",
-            "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-shadow-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {1, 0.3}
+          util.sprite_load("__OS-Speed-Train__/graphics/speed-train/locomotive",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 1,
+              usage = "train"
+            }
+          ),
+          util.sprite_load("__OS-Speed-Train__/graphics/speed-train/locomotive-mask",
+            {
+              dice = 4,
+              priority = "very-low",
+              flags = { "mask" },
+              apply_runtime_tint = true,
+              tint_as_overlay = true,
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 1,
+              usage = "train"
+            }
+          ),
+          util.sprite_load("__OS-Speed-Train__/graphics/speed-train/locomotive-shadow",
+            {
+              dice = 4,
+              priority = "very-low",
+              flags = { "shadow" },
+              draw_as_shadow = true,
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 1,
+              usage = "train"
+            }
+          )
         }
-      }
+      },
+    },
+    front_light_pictures =
+    {
+      rotated =
+      {
+        layers =
+        {
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive-lights",
+            {
+              dice = 4,
+              priority = "very-low",
+              blend_mode = "additive",
+              draw_as_light = true,
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5
+            }
+          )
+        }
+      },
     },
     minimap_representation =
     {
-      filename = "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-minimap-representation.png",
+      filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-minimap-representation.png",
       flags = {"icon"},
       size = {20, 40},
       scale = 0.5
     },
     selected_minimap_representation =
     {
-      filename = "__OS-Speed-Train__/graphics/speed-train/diesel-locomotive-selected-minimap-representation.png",
+      filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-selected-minimap-representation.png",
       flags = {"icon"},
       size = {20, 40},
       scale = 0.5
     },
     wheels = standard_train_wheels,
-    rail_category = "regular",
     stop_trigger =
     {
       -- left side
@@ -234,30 +306,106 @@ data:extend({
       },
       {
         type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/train-breaks.ogg",
-            volume = 1.2
-          }
-        }
+        sound = sounds.train_brakes
+      },
+      {
+        type = "play-sound",
+        sound = sounds.train_brake_screech
       }
     },
     drive_over_tie_trigger = drive_over_tie(),
+    drive_over_tie_trigger_minimal_speed = 0.5,
     tie_distance = 50,
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    impact_category = "metal-large",
     working_sound =
     {
-      sound =
+      main_sounds =
       {
-        filename = "__base__/sound/train-engine.ogg",
-        volume = 0.4
+        {
+          sound =
+          {
+            filename = "__base__/sound/train-engine-driving.ogg",
+            volume = 0.9,
+            modifiers =
+            {
+              volume_multiplier("main-menu", 1.8),
+              volume_multiplier("driving", 0.7),
+              volume_multiplier("tips-and-tricks", 0.8),
+              volume_multiplier("elevation", 0.5)
+            },
+          },
+          match_volume_to_activity = true,
+          activity_to_volume_modifiers =
+          {
+            multiplier = 1.5,
+            offset = 1.0,
+          },
+          match_speed_to_activity = true,
+          activity_to_speed_modifiers =
+          {
+            multiplier = 0.6,
+            minimum = 1.0,
+            maximum = 1.15,
+            offset = 0.2,
+          }
+        },
+        {
+          sound =
+          {
+            filename = "__base__/sound/train-engine.ogg",
+            volume = 0.45,
+            modifiers =
+            {
+              volume_multiplier("main-menu", 1.8),
+              volume_multiplier("driving", 0.9),
+              volume_multiplier("tips-and-tricks", 0.8)
+            },
+          },
+          match_volume_to_activity = true,
+          activity_to_volume_modifiers =
+          {
+            multiplier = 1.75,
+            offset = 1.7,
+            inverted = true
+          },
+        },
+        {
+          sound =
+          {
+            filename = "__base__/sound/train-wheels.ogg",
+            volume = 1.0,
+            modifiers =
+            {
+              volume_multiplier("main-menu", 2.0),
+              volume_multiplier("driving", 0.35),
+              volume_multiplier("elevation", 0.5)
+            },
+          },
+          match_volume_to_activity = true,
+          activity_to_volume_modifiers =
+          {
+            multiplier = 1.7,
+            maximum = 1.0,
+            offset = 1.1,
+          },
+          match_speed_to_activity = true,
+          activity_to_speed_modifiers =
+          {
+            multiplier = 0.6,
+            minimum = 1.0,
+            maximum = 1.2,
+            offset = 0.2,
+          },
+        },
       },
-      match_speed_to_activity = true
+      max_sounds_per_type = 2,
+      activate_sound = { filename = "__base__/sound/train-engine-start.ogg", volume = 0.35 },
+      deactivate_sound = { filename = "__base__/sound/train-engine-stop.ogg", volume = 0.35 },
     },
-    open_sound = { filename = "__base__/sound/car-door-open.ogg", volume=0.7 },
-    close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.7 },
-    sound_minimum_speed = 0.5;
+    open_sound = { filename = "__base__/sound/train-door-open.ogg", volume=0.5 },
+    close_sound = { filename = "__base__/sound/train-door-close.ogg", volume = 0.4 },
+    water_reflection = locomotive_reflection(),
+    allow_remote_driving = true
   },
   {
     type = "cargo-wagon",
@@ -267,12 +415,15 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     inventory_size = 50,
     minable = {mining_time = 1, result = "speed-cargo-wagon"},
-    mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
+    mined_sound = sounds.deconstruct_large(0.8),
     max_health = 500,
-    corpse = "medium-remnants",
-    dying_explosion = "medium-explosion",
+    deliver_category = "vehicle",
+    corpse = "cargo-wagon-remnants",
+    dying_explosion = "cargo-wagon-explosion",
+    factoriopedia_simulation = simulations.factoriopedia_cargo_wagon,
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
+    damaged_trigger_effect = hit_effects.entity(),
     vertical_selection_shift = -0.796875,
     weight = 800,
     max_speed = 2,
@@ -315,122 +466,94 @@ data:extend({
     color = {r = 0.43, g = 0.23, b = 0, a = 0.5},
     pictures =
     {
-      layers =
+      rotated =
       {
+        layers =
         {
-          priority = "very-low",
-          slice = 4,
-          width = 222,
-          height = 205,
-          back_equals_front = true,
-          direction_count = 128,
-          allow_low_quality_rotation = true,
-          filenames =
-          {
-            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-1.png",
-            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-2.png",
-            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-3.png",
-            "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-4.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0, -0.796875}
+          util.sprite_load("__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              back_equals_front = true,
+              direction_count = 128,
+              scale = 1,
+              usage = "train"
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-mask",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              back_equals_front = true,
+              flags = { "mask" },
+              apply_runtime_tint = true,
+              tint_as_overlay = true,
+              direction_count = 128,
+              scale = 0.5,
+              usage = "train"
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-shadow",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              back_equals_front = true,
+              draw_as_shadow = true,
+              direction_count = 128,
+              scale = 0.5,
+              usage = "train"
+            }
+          )
         }
       }
-    },horizontal_doors =
+    },
+    horizontal_doors =
     {
       layers =
       {
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-end.png",
-          line_length = 1,
-          width = 220,
-          height = 33,
-          frame_count = 8,
-          shift = {0, -0.921875}
-        },
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-side.png",
-          line_length = 1,
-          width = 186,
-          height = 38,
-          frame_count = 8,
-          shift = {0, -0.78125}
-        },
-        {
-          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal-side-mask.png",
-          width = 182,
-          height = 35,
-          line_length = 1,
-          frame_count = 8,
-          shift = {0, -0.828125},
-          apply_runtime_tint = true
-        },
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-horizontal-top.png",
-          line_length = 1,
-          width = 184,
-          height = 28,
-          frame_count = 8,
-          shift = {0.015625, -1.125}
-        },
-        {
-          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal-top-mask.png",
-          width = 185,
-          height = 23,
-          frame_count = 8,
-          line_length = 1,
-          shift = {0.015625, -1.17188},
-          apply_runtime_tint = true
-        }
+        util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal",
+          {
+            frame_count = 8,
+            scale = 0.5,
+            usage = "train"
+          }
+        ),
+        util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-door-horizontal-mask",
+          {
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+            flags = { "mask" },
+            frame_count = 8,
+            scale = 0.5,
+            usage = "train"
+          }
+        )
       }
     },
     vertical_doors =
     {
       layers =
       {
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-end.png",
-          line_length = 8,
-          width = 30,
-          height = 23,
-          frame_count = 8,
-          shift = util.by_pixel(0, 62.5)
-        },
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-side.png",
-          line_length = 8,
-          width = 67,
-          height = 169,
-          frame_count = 8,
-          shift = {0.015625, -1.01563}
-        },
-        {
-          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical-side-mask.png",
-          line_length = 8,
-          width = 56,
-          height = 163,
-          frame_count = 8,
-          shift = {0, -1.10938},
-          apply_runtime_tint = true
-        },
-        {
-          filename = "__OS-Speed-Train__/graphics/speed-cargo-wagon/speed-cargo-wagon-door-vertical-top.png",
-          line_length = 8,
-          width = 32,
-          height = 168,
-          frame_count = 8,
-          shift = {0, -1.125}
-        },
-        {
-          filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical-top-mask.png",
-          line_length = 8,
-          width = 32,
-          height = 166,
-          frame_count = 8,
-          shift = {0, -1.15625},
-          apply_runtime_tint = true
-        }
+        util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical",
+          {
+            frame_count = 8,
+            scale = 0.5,
+            usage = "train"
+          }
+        ),
+        util.sprite_load("__base__/graphics/entity/cargo-wagon/cargo-wagon-door-vertical-mask",
+          {
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+            flags = { "mask" },
+            frame_count = 8,
+            scale = 0.5,
+            usage = "train"
+          }
+        )
       }
     },
     minimap_representation =
@@ -448,22 +571,44 @@ data:extend({
       scale = 0.5
     },
     wheels = standard_train_wheels,
-    rail_category = "regular",
     drive_over_tie_trigger = drive_over_tie(),
+    drive_over_tie_trigger_minimal_speed = 0.5,
     tie_distance = 50,
-    working_sound =
+    working_sound = sounds.train_wagon_wheels,
+    crash_trigger = crash_trigger(),
+    open_sound = sounds.cargo_wagon_open,
+    close_sound = sounds.cargo_wagon_close,
+    impact_category = "metal-large",
+    water_reflection = locomotive_reflection(),
+    door_opening_sound =
     {
       sound =
       {
-        filename = "__base__/sound/train-wheels.ogg",
-        volume = 0.6
+        filename = "__base__/sound/cargo-wagon/cargo-wagon-opening-loop.ogg",
+        volume = 0.5,
+        aggregation = {max_count = 2, remove = true, count_already_playing = true}
       },
-      match_volume_to_activity = true
+      stopped_sound =
+      {
+        filename = "__base__/sound/cargo-wagon/cargo-wagon-opened.ogg",
+        volume = 0.35,
+        aggregation = {max_count = 2, remove = true, count_already_playing = true}
+      }
     },
-    crash_trigger = crash_trigger(),
-    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
-    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-    sound_minimum_speed = 0.5;
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
+    door_closing_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/cargo-wagon/cargo-wagon-closing-loop.ogg",
+        volume = 0.5,
+        aggregation = {max_count = 2, remove = true, count_already_playing = true}
+      },
+      stopped_sound =
+      {
+        filename = "__base__/sound/cargo-wagon/cargo-wagon-closed.ogg",
+        volume = 0.35,
+        aggregation = {max_count = 2, remove = true, count_already_playing = true}
+      }
+    }
   }
 })

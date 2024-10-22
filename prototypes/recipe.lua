@@ -1,41 +1,44 @@
 data:extend({
- {
+  {
     type = "recipe",
     name = "speed-train",
-    enabled = "false",
-    ingredients = 
+    enabled = false,
+    ingredients =
     {
-      {"locomotive",1},
-      {"electronic-circuit",200},
-      {"advanced-circuit",50},
-      {"iron-gear-wheel",50},
-      {"plastic-bar",150}
+      {type = "item", name = "locomotive", amount = 1},
+      {type = "item", name = "electronic-circuit", amount = 200},
+      {type = "item", name = "advanced-circuit", amount = 50},
+      {type = "item", name = "iron-gear-wheel", amount = 50},
+      {type = "item", name = "plastic-bar", amount = 150}
     },
-    result = "speed-train"
+    energy_required = 60,
+    results = {{type="item", name="speed-train", amount=1}}
   },
   {
     type = "recipe",
     name = "speed-cargo-wagon",
-    enabled = "false",
-    ingredients = 
+    enabled = false,
+    ingredients =
     {
-      {"cargo-wagon",1},
-      {"electronic-circuit",100},
-      {"advanced-circuit",20},
-      {"iron-gear-wheel",50},
-      {"plastic-bar",75}
+      {type = "item", name = "cargo-wagon", amount = 1},
+      {type = "item", name = "electronic-circuit", amount = 100},
+      {type = "item", name = "advanced-circuit", amount = 20},
+      {type = "item", name = "iron-gear-wheel", amount = 50},
+      {type = "item", name = "plastic-bar", amount = 75}
     },
-    result = "speed-cargo-wagon"
+    energy_required = 15,
+    results = {{type="item", name="speed-cargo-wagon", amount=1}}
   },
   {
     type = "recipe",
     name = "speed-train-fuel",
-    enabled = "false",
-    ingredients = 
+    enabled = false,
+    ingredients =
     {
-      {"rocket-fuel",2},
-      {"sulfur",3}
+      {type = "item", name = "rocket-fuel", amount = 2},
+      {type = "item", name = "sulfur", amount = 3}
     },
-    result = "speed-train-fuel"
+    energy_required = 5,
+    results = {{type="item", name="speed-train-fuel", amount=1}}
   }
 })
