@@ -3,7 +3,7 @@
 
 # [OS] Speed Train
 
-> **Warning:** Since 2.1.0 the speed trains are no longer overpowered. The speed train, speed cargo wagon and train fuel were rebalanced, and the old stats now live on as the more expensive Mk2 tier. Trains and wagons in existing saves are migrated to Mk2 automatically. If you want the old overpowered trains back, [2.0.1][downloads] is the last version with them.
+> **Warning:** Since 3.0.0 the speed trains are no longer overpowered. The speed train, speed cargo wagon and train fuel were rebalanced, and the old stats now live on as the more expensive Mk2 tier. Trains and wagons in existing saves are migrated to Mk2 automatically. If you want the old overpowered trains back, [2.0.1][downloads] is the last version with them.
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ Graphics and code derived from the Factorio base game are © Wube Software and u
 
 ## Changelog
 
-### [2.1.0] 08.10.2026
+### [3.0.0] 08.10.2026
 Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two tiers, and recipes and technologies use 2.0 materials. Without Space Age, Mk2 and the train fuel fall back to vanilla materials and utility science.
 
 **Added:**
