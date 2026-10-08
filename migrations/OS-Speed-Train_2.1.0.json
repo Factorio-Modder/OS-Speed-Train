@@ -1,0 +1,12 @@
+{
+  "entity":
+  [
+    ["speed-train", "speed-train-mk2"],
+    ["speed-cargo-wagon", "speed-cargo-wagon-mk2"]
+  ],
+  "item":
+  [
+    ["speed-train", "speed-train-mk2"],
+    ["speed-cargo-wagon", "speed-cargo-wagon-mk2"]
+  ]
+}
