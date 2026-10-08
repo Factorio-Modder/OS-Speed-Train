@@ -1,3 +1,48 @@
+local mk2_icons = require("prototypes.mk2-icons")
+
+local space_age = mods["space-age"]
+
+local speed_train_fuel_prerequisites = space_age and
+  {"speed-train", "kovarex-enrichment-process", "electromagnetic-science-pack"} or
+  {"speed-train", "kovarex-enrichment-process"}
+
+local speed_train_fuel_ingredients = space_age and
+{
+  {"automation-science-pack", 1},
+  {"logistic-science-pack", 1},
+  {"chemical-science-pack", 1},
+  {"production-science-pack", 1},
+  {"electromagnetic-science-pack", 1}
+} or
+{
+  {"automation-science-pack", 1},
+  {"logistic-science-pack", 1},
+  {"chemical-science-pack", 1},
+  {"production-science-pack", 1}
+}
+
+local speed_train_mk2_prerequisites = space_age and
+  {"speed-train", "electromagnetic-science-pack", "metallurgic-science-pack"} or
+  {"speed-train", "utility-science-pack"}
+
+local speed_train_mk2_ingredients = space_age and
+{
+  {"automation-science-pack", 1},
+  {"logistic-science-pack", 1},
+  {"chemical-science-pack", 1},
+  {"production-science-pack", 1},
+  {"space-science-pack", 1},
+  {"electromagnetic-science-pack", 1},
+  {"metallurgic-science-pack", 1}
+} or
+{
+  {"automation-science-pack", 1},
+  {"logistic-science-pack", 1},
+  {"chemical-science-pack", 1},
+  {"production-science-pack", 1},
+  {"utility-science-pack", 1}
+}
+
 data:extend(
 {
   {
@@ -16,18 +61,18 @@ data:extend(
         recipe = "speed-cargo-wagon"
       }
     },
-    prerequisites = {"braking-force-3"},
+    prerequisites = {"braking-force-3", "low-density-structure", "processing-unit", "electric-engine"},
     unit =
     {
-      count = 750,
+      count = 500,
       ingredients =
       {
-        {"automation-science-pack", 2},
-        {"logistic-science-pack", 2},
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
         {"production-science-pack", 1}
       },
-      time = 20
+      time = 30
     },
     order = "b-f-h"
   },
@@ -43,18 +88,37 @@ data:extend(
         recipe = "speed-train-fuel"
       }
     },
-    prerequisites = {"speed-train"},
+    prerequisites = speed_train_fuel_prerequisites,
     unit =
     {
-      count = 250,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"production-science-pack", 2}
-      },
-      time = 40
+      count = 500,
+      ingredients = speed_train_fuel_ingredients,
+      time = 30
     },
     order = "b-f-i"
+  },
+  {
+    type = "technology",
+    name = "speed-train-mk2",
+    icons = mk2_icons("__OS-Speed-Train__/graphics/icons/speed-train-tech.png", 128, 256),
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "speed-train-mk2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "speed-cargo-wagon-mk2"
+      }
+    },
+    prerequisites = speed_train_mk2_prerequisites,
+    unit =
+    {
+      count = 1000,
+      ingredients = speed_train_mk2_ingredients,
+      time = 60
+    },
+    order = "b-f-j"
   }
 })

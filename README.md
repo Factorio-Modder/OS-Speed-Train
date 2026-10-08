@@ -3,7 +3,7 @@
 
 # [OS] Speed Train
 
-> **Warning:** 2.0.1 is the last release with the current overpowered stats. The next release will rebalance (nerf) the speed train, speed cargo wagon and speed train fuel.
+> **Warning:** Since 2.1.0 the speed trains are no longer overpowered. The speed train, speed cargo wagon and train fuel were rebalanced, and the old stats now live on as the more expensive Mk2 tier. If you want the old overpowered trains back, [2.0.1][downloads] is the last version with them.
 
 ## Getting Started
 
@@ -48,6 +48,27 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Graphics and code derived from the Factorio base game are © Wube Software and used under its modding terms.
 
 ## Changelog
+
+### [2.1.0] 08.10.2026
+Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two tiers, and recipes and technologies use 2.0 materials. Without Space Age, Mk2 and the train fuel fall back to vanilla materials and utility science.
+
+**Added:**
+- Speed train Mk2 and speed cargo wagon Mk2, unlocked by a new technology (Space Age: electromagnetic and metallurgic science)
+- Speed train and speed cargo wagon can only be placed on planets with gravity when Space Age is enabled, like the vanilla rolling stock
+
+**Changed:**
+- Speed train: max speed 2.0 -> 1.5, power 2000kW -> 1000kW, weight 1500 -> 2000, braking force 25 -> 12, health 1500 -> 1000, fuel effectivity 1.2 -> 1.0, higher friction and air resistance
+- Speed cargo wagon: 50 -> 40 slots, max speed 2.0 -> 1.75, weight 800 -> 1000, braking force 5 -> 3, health 500 -> 600
+- Speed train and speed cargo wagon recipes now use electric engines, processing units and low density structures
+- Speed train technology now requires low density structure, processing unit and electric engine, cost 750 -> 500 units
+- Train fuel: made from nuclear fuel and low density structures (Space Age: plus a supercapacitor) instead of rocket fuel and sulfur, energy 0.86GJ -> 1.21GJ, acceleration 0.9 -> 1.0, top speed 1.5 -> 1.35, stack size 5 -> 1
+- Train fuel technology now requires Kovarex enrichment process (Space Age: and electromagnetic science) and chemical science
+
+**Fixed:**
+- Train fuel produced 4x more energy than its ingredients
+- Train fuel could be unlocked before rocket fuel
+
+
 
 ### [2.0.1] 08.10.2026
 Almost two years after 2.0.0, right on schedule.
@@ -143,6 +164,7 @@ Have fun :)
 [shild-i-download]: https://img.shields.io/badge/Visit-Mod%20Portal-orange?style=flat-square
 [shild-i-gitlab]: https://img.shields.io/badge/Visit-GitLab-orange?style=flat-square
 [mod-portal]: https://mods.factorio.com/mod/OS-Speed-Train/
+[downloads]: https://mods.factorio.com/mod/OS-Speed-Train/downloads
 [gitlab]: https://gitlab.com/factorio-community/factorio-mods/os-speed-train
 [image]: https://mods-data.factorio.com/assets/1796cb7c975b3e282b2d49ab8c610ed3744df35f.png
 [wiki]: https://github.com/yourname/yourproject/wiki

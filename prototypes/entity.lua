@@ -56,6 +56,9 @@ local drive_over_tie = function()
   }
 end
 
+-- Space Age restricts the base rolling stock to planets with gravity
+local rolling_stock_surface_conditions = mods["space-age"] and {{property = "gravity", min = 1}} or nil
+
 local locomotive_reflection = function()
   return
   {
@@ -83,7 +86,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     minable = {mining_time = 1, result = "speed-train"},
     mined_sound = sounds.deconstruct_large(0.8),
-    max_health = 1500,
+    max_health = 1000,
     deliver_category = "vehicle",
     corpse = "locomotive-remnants",
     dying_explosion = "locomotive-explosion",
@@ -93,14 +96,15 @@ data:extend({
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box_vertical_extension = 1,
     alert_icon_shift = util.by_pixel(0, -24),
-    weight = 1500,
-    max_speed = 2.0,
-    max_power = "2000kW",
+    surface_conditions = rolling_stock_surface_conditions,
+    weight = 2000,
+    max_speed = 1.5,
+    max_power = "1000kW",
     reversing_power_modifier = 0.6,
-    braking_force = 25,
-    friction_force = 0.25,
+    braking_force = 12,
+    friction_force = 0.50,
     vertical_selection_shift = -0.5,
-    air_resistance = 0.0050, -- this is a percentage of current speed that will be subtracted
+    air_resistance = 0.0065, -- this is a percentage of current speed that will be subtracted
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 10,
@@ -140,7 +144,7 @@ data:extend({
     {
       type = "burner",
       fuel_categories = {"chemical"},
-      effectivity = 1.2,
+      effectivity = 1,
       fuel_inventory_size = 3,
       smoke =
       {
@@ -413,10 +417,10 @@ data:extend({
     icon = "__OS-Speed-Train__/graphics/icons/speed-cargo-wagon.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
-    inventory_size = 50,
+    inventory_size = 40,
     minable = {mining_time = 1, result = "speed-cargo-wagon"},
     mined_sound = sounds.deconstruct_large(0.8),
-    max_health = 500,
+    max_health = 600,
     deliver_category = "vehicle",
     corpse = "cargo-wagon-remnants",
     dying_explosion = "cargo-wagon-explosion",
@@ -425,10 +429,11 @@ data:extend({
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
     damaged_trigger_effect = hit_effects.entity(),
     vertical_selection_shift = -0.796875,
-    weight = 800,
-    max_speed = 2,
-    braking_force = 5,
-    friction_force = 0.40,
+    surface_conditions = rolling_stock_surface_conditions,
+    weight = 1000,
+    max_speed = 1.75,
+    braking_force = 3,
+    friction_force = 0.50,
     air_resistance = 0.01,
     connection_distance = 3,
     joint_distance = 4,
