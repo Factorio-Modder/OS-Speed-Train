@@ -66,10 +66,12 @@ Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two 
 - Train fuel: made from nuclear fuel and low density structures (Space Age: plus a supercapacitor) instead of rocket fuel and sulfur, energy 0.86GJ -> 1.21GJ, acceleration 0.9 -> 1.0, top speed 1.5 -> 1.35, stack size 5 -> 1
 - Train fuel technology now requires Kovarex enrichment process (Space Age: and electromagnetic science) and chemical science
 - Rewrote all item and technology descriptions and technology names (English and German)
+- Speed train and speed cargo wagon now use high-resolution graphics
 
 **Fixed:**
 - Train fuel produced 4x more energy than its ingredients
 - Train fuel could be unlocked before rocket fuel
+- Speed train and speed cargo wagon were drawn too far down on the track since 2.0.0, and the wagon body did not line up with its doors
 
 
 

@@ -215,7 +215,7 @@ data:extend({
               priority = "very-low",
               allow_low_quality_rotation = true,
               direction_count = 256,
-              scale = 1,
+              scale = 0.5,
               usage = "train"
             }
           ),
@@ -228,11 +228,11 @@ data:extend({
               tint_as_overlay = true,
               allow_low_quality_rotation = true,
               direction_count = 256,
-              scale = 1,
+              scale = 0.5,
               usage = "train"
             }
           ),
-          util.sprite_load("__OS-Speed-Train__/graphics/speed-train/locomotive-shadow",
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive-shadow",
             {
               dice = 4,
               priority = "very-low",
@@ -240,7 +240,7 @@ data:extend({
               draw_as_shadow = true,
               allow_low_quality_rotation = true,
               direction_count = 256,
-              scale = 1,
+              scale = 0.5,
               usage = "train"
             }
           )
@@ -482,7 +482,7 @@ data:extend({
               allow_low_quality_rotation = true,
               back_equals_front = true,
               direction_count = 128,
-              scale = 1,
+              scale = 0.5,
               usage = "train"
             }
           ),
