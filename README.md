@@ -53,7 +53,7 @@ Graphics and code derived from the Factorio base game are © Wube Software and u
 Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two tiers, and recipes and technologies use 2.0 materials. Without Space Age, Mk2 and the train fuel fall back to vanilla materials and utility science.
 
 **Added:**
-- Speed train Mk2 and speed cargo wagon Mk2 in the original gold look, unlocked by a new technology (Space Age: electromagnetic and metallurgic science)
+- Speed train Mk2 and speed cargo wagon Mk2 with their own blue look, unlocked by a new technology (Space Age: electromagnetic and metallurgic science)
 - Migration: speed trains and speed cargo wagons in existing saves (placed and as items) become Mk2, so they keep their old stats and no wagon cargo is lost
 - Speed train and speed cargo wagon can only be placed on planets with gravity when Space Age is enabled, like the vanilla rolling stock
 - InformaTron pages (optional): overview, rolling stock and fuel stats compared with vanilla, and what each technology needs and unlocks
@@ -66,7 +66,7 @@ Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two 
 - Train fuel: made from nuclear fuel and low density structures (Space Age: plus a supercapacitor) instead of rocket fuel and sulfur, energy 0.86GJ -> 1.21GJ, acceleration 0.9 -> 1.0, top speed 1.5 -> 1.35, stack size 5 -> 1
 - Train fuel technology now requires Kovarex enrichment process (Space Age: and electromagnetic science) and chemical science
 - Rewrote all item and technology descriptions and technology names (English and German)
-- Speed train and speed cargo wagon now use high-resolution graphics and are blue (the gold look moved to Mk2)
+- Speed train and speed cargo wagon now use high-resolution graphics
 
 **Fixed:**
 - Train fuel produced 4x more energy than its ingredients

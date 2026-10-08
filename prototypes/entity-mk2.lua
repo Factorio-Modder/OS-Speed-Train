@@ -1,4 +1,4 @@
--- Mk2 uses its own body sprites (the gold look, Mk1 is blue); mask, shadow and other layers are shared.
+-- Mk2 uses its own body sprites (a blue recolor of the gold Mk1); mask, shadow and other layers are shared.
 local recolor_body = function(pictures, from, to)
   local result = util.table.deepcopy(pictures)
   local body = result.rotated.layers[1]
@@ -34,7 +34,7 @@ data:extend({
     braking_force = 22,
     friction_force = 0.35,
     air_resistance = 0.005,
-    color = {r = 0.6, g = 0.03, b = 0.05, a = 1}
+    color = {r = 1, g = 0.45, b = 0, a = 1}
   }),
   mk2_from(data.raw["cargo-wagon"]["speed-cargo-wagon"], "speed-cargo-wagon-mk2",
   {
@@ -49,6 +49,6 @@ data:extend({
     max_speed = 2.0,
     braking_force = 5,
     friction_force = 0.40,
-    color = {r = 0.3, g = 0.15, b = 0.05, a = 0.5}
+    color = {r = 0.75, g = 0.78, b = 0.82, a = 0.5}
   })
 })

@@ -201,7 +201,7 @@ data:extend({
     },
     back_light = rolling_stock_back_light(),
     stand_by_light = rolling_stock_stand_by_light(),
-    color = {r = 1, g = 0.45, b = 0, a = 1},
+    color = {r = 0.6, g = 0.03, b = 0.05, a = 1},
     default_copy_color_from_train_stop = true,
     pictures =
     {
@@ -468,7 +468,7 @@ data:extend({
     },
     back_light = rolling_stock_back_light(),
     stand_by_light = rolling_stock_stand_by_light(),
-    color = {r = 0.75, g = 0.78, b = 0.82, a = 0.5},
+    color = {r = 0.3, g = 0.15, b = 0.05, a = 0.5},
     pictures =
     {
       rotated =
