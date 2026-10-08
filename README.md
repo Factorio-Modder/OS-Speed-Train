@@ -3,6 +3,8 @@
 
 # [OS] Speed Train
 
+> **Warning:** 2.0.1 is the last release with the current overpowered stats. The next release will rebalance (nerf) the speed train, speed cargo wagon and speed train fuel.
+
 ## Getting Started
 
 This mod adds faster trains to the game. Those trains must be unlocked with a own tech and are definitly more expensive than the vanilla train.
@@ -35,11 +37,52 @@ Visit the [GitLab Repo][gitlab] for further informations.
 
 * **Hille** - *Initial work* - [@hille](https://gitlab.com/hille)
 
+## Credits
+
+* **Arch666Angel** - Versions 0.2.0 to 0.3.0 used a recoloured train model and icon from the mod angelsaddons-smeltingtrain. They were replaced in 0.4.0.
+
 ## License
 
-This project is licensed under the CC BY-NC-ND 4.0 - see the [LICENSE](https://creativecommons.org/licenses/by-nc-nd/4.0/) for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Graphics and code derived from the Factorio base game are © Wube Software and used under its modding terms.
 
 ## Changelog
+
+### [2.0.1] 08.10.2026
+Almost two years after 2.0.0, right on schedule.
+
+**Warning:** This is the last release with the current overpowered stats. The next release will rebalance (nerf) the speed train, speed cargo wagon and speed train fuel.
+
+**Changed:**
+- Speed train and speed cargo wagon icons in higher resolution (64px)
+- Speed train and speed cargo wagon are now sorted next to the vanilla locomotive and cargo wagon
+- License changed to MIT
+
+**Fixed:**
+- Speed train entity used the vanilla locomotive icon with a wrong icon size
+- Spelling mistakes in the german translation
+
+
+
+### [2.0.0] 22.10.2024
+**Added:**
+- Version 2.0 support
+- Remote driving for the speed train
+
+**Changed:**
+- Speed train max speed increased (1.6 -> 2.0)
+- Speed train health reduced (3000 -> 1500)
+- Speed train fuel effectivity increased (0.8 -> 1.2), fuel slots reduced (5 -> 3)
+- Recipes now have crafting times (speed train 60s, speed cargo wagon 15s, train fuel 5s)
+
+
+
+### [1.0.1] 09.08.2021
+**Added:**
+- Version 1.1 support
+
+
 
 ### [1.0.0] 28.10.2020
 After 1 1/2 years the official version 1.0.0 is released to support the 1.0 version of the game.

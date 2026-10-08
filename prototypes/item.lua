@@ -4,9 +4,9 @@ data:extend({
     type = "item",
     name = "speed-train",
     icon = "__OS-Speed-Train__/graphics/icons/speed-train.png",
-    icon_size = 32,
-    subgroup = "transport",
-    order = "a[train-system]-f[diesel-locomotive]",
+    icon_size = 64,
+    subgroup = "train-transport",
+    order = "c[rolling-stock]-a[locomotive]-b[speed-train]",
     place_result = "speed-train",
     stack_size = 1
 	
@@ -15,9 +15,9 @@ data:extend({
     type = "item",
     name = "speed-cargo-wagon",
     icon = "__OS-Speed-Train__/graphics/icons/speed-cargo-wagon.png",
-    icon_size = 32,
-    subgroup = "transport",
-    order = "a[train-system]-g[cargo-wagon]",
+    icon_size = 64,
+    subgroup = "train-transport",
+    order = "c[rolling-stock]-b[cargo-wagon]-b[speed-cargo-wagon]",
     place_result = "speed-cargo-wagon",
     stack_size = 5
 	
