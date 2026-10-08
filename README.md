@@ -14,7 +14,7 @@ There is a own train fuel which makes them even more powerful.
 
 ### Dependencys
 
-Right now there are no dependencys.
+Right now there are no required dependencys. If [InformaTron](https://mods.factorio.com/mod/informatron) is installed, the mod adds help pages to it.
 
 ### Installing
 
@@ -56,6 +56,7 @@ Rebalance for Factorio 2.0 and Space Age. The speed train is now split into two 
 - Speed train Mk2 and speed cargo wagon Mk2, unlocked by a new technology (Space Age: electromagnetic and metallurgic science)
 - Migration: speed trains and speed cargo wagons in existing saves (placed and as items) become Mk2, so they keep their old stats and no wagon cargo is lost
 - Speed train and speed cargo wagon can only be placed on planets with gravity when Space Age is enabled, like the vanilla rolling stock
+- InformaTron pages (optional): overview, rolling stock and fuel stats compared with vanilla, and what each technology needs and unlocks
 
 **Changed:**
 - Speed train: max speed 2.0 -> 1.5, power 2000kW -> 1000kW, weight 1500 -> 2000, braking force 25 -> 12, health 1500 -> 1000, fuel effectivity 1.2 -> 1.0, higher friction and air resistance

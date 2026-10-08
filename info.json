@@ -6,5 +6,9 @@
   "author": "Heacien",
   "contact": "https://mods.factorio.com/mod/OS-Speed-Train/discussion",
   "homepage": "https://mods.factorio.com/mod/OS-Speed-Train",
-  "description": "Adds speed trains for faster railway transport."
+  "description": "Adds speed trains for faster railway transport.",
+  "dependencies": [
+    "base >= 2.0",
+    "? informatron"
+  ]
 }
