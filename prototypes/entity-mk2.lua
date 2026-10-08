@@ -1,4 +1,4 @@
--- Mk2 uses recolored copies of the Mk1 body sprites; mask, shadow and other layers are shared.
+-- Mk2 uses its own body sprites (the gold look, Mk1 is blue); mask, shadow and other layers are shared.
 local recolor_body = function(pictures, from, to)
   local result = util.table.deepcopy(pictures)
   local body = result.rotated.layers[1]
