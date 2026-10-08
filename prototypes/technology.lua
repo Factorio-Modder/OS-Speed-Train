@@ -1,5 +1,3 @@
-local mk2_icons = require("prototypes.mk2-icons")
-
 local space_age = mods["space-age"]
 
 local speed_train_fuel_prerequisites = space_age and
@@ -100,7 +98,20 @@ data:extend(
   {
     type = "technology",
     name = "speed-train-mk2",
-    icons = mk2_icons("__OS-Speed-Train__/graphics/icons/speed-train-tech.png", 128, 256),
+    icons =
+    {
+      {
+        icon = "__OS-Speed-Train__/graphics/icons/speed-train-mk2-tech.png",
+        icon_size = 128
+      },
+      {
+        icon = "__core__/graphics/icons/technology/constants/constant-movement-speed.png",
+        icon_size = 128,
+        scale = 0.5,
+        shift = {50, 50},
+        floating = true
+      }
+    },
     effects =
     {
       {

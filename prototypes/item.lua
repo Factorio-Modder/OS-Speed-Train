@@ -1,5 +1,3 @@
-local mk2_icons = require("prototypes.mk2-icons")
-
 data:extend({
 
   {
@@ -41,7 +39,8 @@ data:extend({
   {
     type = "item",
     name = "speed-train-mk2",
-    icons = mk2_icons("__OS-Speed-Train__/graphics/icons/speed-train.png", 64, 64),
+    icon = "__OS-Speed-Train__/graphics/icons/speed-train-mk2.png",
+    icon_size = 64,
     subgroup = "train-transport",
     order = "c[rolling-stock]-a[locomotive]-c[speed-train-mk2]",
     place_result = "speed-train-mk2",
@@ -50,7 +49,8 @@ data:extend({
   {
     type = "item",
     name = "speed-cargo-wagon-mk2",
-    icons = mk2_icons("__OS-Speed-Train__/graphics/icons/speed-cargo-wagon.png", 64, 64),
+    icon = "__OS-Speed-Train__/graphics/icons/speed-cargo-wagon-mk2.png",
+    icon_size = 64,
     subgroup = "train-transport",
     order = "c[rolling-stock]-b[cargo-wagon]-c[speed-cargo-wagon-mk2]",
     place_result = "speed-cargo-wagon-mk2",
